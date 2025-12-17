@@ -1,23 +1,28 @@
+import { useNavigate } from "react-router-dom";
+
 function LandingNavbar() {
+  const navigate = useNavigate();
+
   return (
     <header className="w-full absolute top-0 left-0 z-20">
       <div className="max-w-7xl mx-auto h-16 px-6 flex items-center justify-between">
 
         {/* Logo */}
         <img
-          src="./DocgenLogo.png"
-          alt="OptiCode Logo"
-          className="h-10 w-auto"
+          src="/DocgenLogo.png"
+          alt="DocGen AI Logo"
+          className="h-10 w-auto cursor-pointer"
+          onClick={() => navigate("/")}
         />
 
         {/* Actions */}
         <div className="flex items-center gap-5">
           <button
             className="
-              text-gray-300 text-sm font-medium
-              hover:text-white
+              text-white text-sm font-medium
               transition-colors
             "
+            onClick={() => navigate("/login")}
           >
             Login
           </button>
@@ -32,6 +37,7 @@ function LandingNavbar() {
               bg-white
               group
             "
+            onClick={() => navigate("/signup")}
           >
             <span
               className="
