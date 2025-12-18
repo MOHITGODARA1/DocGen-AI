@@ -14,3 +14,29 @@
     animation: borderSpin 4s linear infinite;
   }
 }
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .input-dark {
+    @apply bg-black border border-white/10 text-white text-sm
+           placeholder-gray-500 rounded-xl px-4 py-2
+           focus:outline-none focus:border-green-400 transition;
+  }
+
+  .btn-primary {
+    @apply bg-white text-black font-medium rounded-xl py-2.5
+           hover:bg-gray-100 transition;
+  }
+
+  .btn-ghost {
+    @apply bg-white/10 text-white rounded-xl
+           hover:bg-white/20 transition;
+  }
+
+  .sidebar-item {
+    @apply text-gray-400 text-sm px-3 py-2 rounded-md
+           hover:text-white hover:bg-white/5 transition;
+  }
+}
