@@ -1,17 +1,22 @@
-import express from "express";
+import app from "./app.js";
+import dotenv from "dotenv"
+import connectDB from "./db/connectmongodb.js";
 
-const app = express();
-const PORT = 5000;
 
-// Middleware
-app.use(express.json());
+dotenv.config();
+const PORT=process.env.PORT ||3000;
 
-// Test Route
-app.get("/", (req, res) => {
-  res.send("Backend is runni");
-});
+connectDB().then(()=>{
+  app.listen(PORT, () => {        
+    console.log(`Server running on http://localhost:${PORT}`);
+    }
+  )
+}
+).catch((err)=>{
+  console.log("Faild to connect Database",err);
+  process.exit(1);
+}
+
+)
 
 // Start Server
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
